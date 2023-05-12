@@ -1,16 +1,13 @@
-const express = require("express")
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import AuthContextProvider from './Context/AuthContext'
 
-const router = express.Router()
-
-const authRoute = require("./auth")
-const storyRoute = require("./story")
-const userRoute = require("./user")
-const commentRoute = require("./comment")
-
-router.use("/auth",authRoute)
-router.use("/story",storyRoute)
-router.use("/user",userRoute)
-router.use("/comment",commentRoute)
-
-
-module.exports = router
+ReactDOM.render(
+  <React.StrictMode>
+    <AuthContextProvider>
+       <App />
+    </AuthContextProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
